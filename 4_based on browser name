@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+
+
+public class SeleniumScript4
+
+{
+
+public static void main(String[] args)
+
+{
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println("Enter browser?GC/FF/IE");
+
+String browser=sc.next();
+
+WebDriver driver;
+
+
+
+if(browser.equals("GC"))
+
+{
+
+System.setProperty("webdriver.chrome.driver","D:/NGA/chromedriver.exe");
+
+driver=new ChromeDriver();
+
+}
+
+
+
+else if(browser.equals("IE"))
+
+{
+
+System.setProperty("webdriver.ie.driver","D:/NGA/IEDriverServer.exe");
+
+driver=new InternetExplorerDriver();
+
+}
+
+
+
+else
+
+{
+
+driver=new FirefoxDriver();
+
+}
+
+driver.get("https://www.google.co.in");
+
+System.out.println(driver.getTitle());
+
+System.out.println(driver.getCurrentUrl());
+
+driver.close();
+
+}
+
+}
