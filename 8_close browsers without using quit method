@@ -1,0 +1,19 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.Set;
+
+class SeleniumScript9 {
+  public static void main(String[] args) {
+    // Set the path to the ChromeDriver executable
+    System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+
+    WebDriver driver = new ChromeDriver();
+    driver.get("http://www.timesofindia.indiatimes.com//");
+
+    for (String wh : driver.getWindowHandles()) {
+      driver.switchTo().window(wh);
+      System.out.println(driver.getTitle());
+      driver.close();
+    }
+  }
+}
