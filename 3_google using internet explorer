@@ -1,0 +1,15 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class OpenGoogle {
+    public static void main(String[] args) {
+        // Set the path to the geckodriver executable
+        System.setProperty("webdriver.gecko.driver", "path_to_geckodriver\\geckodriver.exe");
+        // Initialize Firefox driver
+        WebDriver driver = new FirefoxDriver();
+
+        // Open Google.co.in
+        driver.get("https://www.google.co.in");
+        driver.quit();
+    }
+}
