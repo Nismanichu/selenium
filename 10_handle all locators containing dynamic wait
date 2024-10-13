@@ -1,0 +1,21 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions; i
+mport org.openqa.selenium.support.ui.WebDriverWait;
+public class   GenericLocatorHelper
+{
+public static WebElement getElement(WebDriver driver, String locator, String locatorType, int
+timeoutInSeconds)
+{
+WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+switch (locatorType.toLowerCase())
+{
+case &quot;id&quot;: return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(locator)));
+case &quot;name&quot;: return wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(locator)));
+case &quot;xpath&quot;: return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+case &quot;css selector&quot;: return
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
+default:
+throw new IllegalArgumentException(&quot;Invalid locator type: &quot; + locatorType);
+} } }
